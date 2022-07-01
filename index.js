@@ -1,21 +1,28 @@
-const express = require("express")
-const student = require("./data")
+// Express application
 
-const app = express()
+const express = require("express") // import express
+const student = require("./data") // import json data from data file
 
-app.get("/student", function (req, res) {
+const app = express() //creating express server
+
+// creating routes
+app.get("/api/main", function (req, res) {
     res.json(student)
 })
+
+// Home route
+app.get("/", function (req, res) {
+    res.send("<h1>hello, how are you</h1>")
+})
+
 app.get("/fun1", function (req, res) {
     res.json(student.fun1(5, 25))
 })
-app.get("/fun3", function (req, res) {
+
+app.get("/string", function (req, res) {
     // res.json(student.fun2(50, 25))
     res.write("this is function 3")
     res.end()
 })
-app.get("/fun2", function (req, res) {
-    res.json(student.fun3(105, 25))
-})
 
-app.listen(5)
+app.listen(4001) // browser port(4001)
