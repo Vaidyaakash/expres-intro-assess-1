@@ -20,7 +20,6 @@ app.get("/fun1", function (req, res) {
 })
 
 app.get("/string", function (req, res) {
-    // res.json(student.fun2(50, 25))
     res.write("this is function 3")
     res.end()
 })
